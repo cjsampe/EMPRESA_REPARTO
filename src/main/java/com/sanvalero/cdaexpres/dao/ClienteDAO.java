@@ -115,6 +115,28 @@ public class ClienteDAO {
         sentencia.executeUpdate();
     }
     
+
+    /**
+     * Busca si existe un cliente con el DNI introducido
+     * Si no hay ninguno, al quedar el nombre vacío se devuelve un error
+     * @param dni
+     * @return cliente
+     * @throws SQLException 
+     */
+    public Cliente buscarCliente(String dni) throws SQLException {
+        String sql = "Select c.cliente_id, nombre FROM clientes c WHERE c.dni = ?";
+        PreparedStatement sentencia = connection.prepareStatement(sql);
+        sentencia.setString(1, dni);
+        ResultSet resultado = sentencia.executeQuery();
+        Cliente cliente = new Cliente(0,null,null,null,null);
+        while (resultado.next()) {
+            cliente.setId(resultado.getInt(1));
+            cliente.setNombre(resultado.getString(2));
+        }
+        return cliente;
+    }
+    
+   
     /**
      * Modifica la información de un cliente
      * @param cliente El cliente con la información a modificar
