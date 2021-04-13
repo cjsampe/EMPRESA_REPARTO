@@ -6,7 +6,7 @@
         <title>My form</title>
     </head>
     <body>
-        <h1>Ejemplo de formulario web</h1>
+        <h1>Registrar un nuevo cliente</h1>
         <form method="post" action="add-cliente">
             Nombre:
             <input type="text" name="nombre"/><br/>

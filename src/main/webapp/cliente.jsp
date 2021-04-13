@@ -1,5 +1,5 @@
-<%@page import="com.sanvalero.ctaexpres.domain.Cliente"%>
-<%@page import="com.sanvalero.ctaexpres.dao.ClienteDAO"%>
+<%@page import="com.sanvalero.cdaexpres.domain.Cliente"%>
+<%@page import="com.sanvalero.cdaexpres.dao.ClienteDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -6,10 +6,10 @@
         <title>My form</title>
     </head>
     <body>
-        <h1>Ejemplo de formulario web</h1>
+        <h1>Eliminar un cliente por el DNI</h1>
         <form method="post" action="remove-cliente">
-            ID:
-            <input type="text" name="id"/><br/>
+            DNI:
+            <input type="text" name="dni"/><br/>
             <input type="submit" value="Eliminar"/>
         </form>
         

@@ -17,17 +17,16 @@ public class RemoveClienteServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
-        int clienteId = Integer.parseInt(request.getParameter("id"));        
+        String dni = request.getParameter("dni");        
         ClienteDAO clienteDAO = new ClienteDAO();
         try{
-        clienteDAO.removeCliente(clienteId);
+        clienteDAO.removeCliente(dni);
         response.sendRedirect("clientes?message=Cliente eliminado");
         }catch (SQLException sqle) {
             sqle.printStackTrace();
             response.sendRedirect("myform_1.jsp?status=error");
-        }      
+        }         
     }
-    
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
