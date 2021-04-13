@@ -15,16 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet que obtiene la lista completa de clientes de la base de datos
  */
-@WebServlet(name = "clientes", urlPatterns = {"/clientes"})
-public class GetClientesServlet extends HttpServlet {
+@WebServlet(name = "consult-cliente", urlPatterns = {"/consult-cliente"})
+public class GetClientesDniServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
         PrintWriter out = response.getWriter();
-        out.println("<p>Listado de clientes (con servlet)</p>");
+        out.println("<p>Este es el cliente buscado (con servlet)</p>");
+        String dni = request.getParameter("dni");        
         ClienteDAO clienteDAO = new ClienteDAO();
         try {
-            ArrayList<Cliente> clientes = clienteDAO.getAllClientes();
+            ArrayList<Cliente> clientes = clienteDAO.getClientesDni(dni);
             out.println("<ul>");
             for (Cliente cliente : clientes) {
                 out.println("<li>" + cliente.getNombre() + " " + cliente.getDni() +
