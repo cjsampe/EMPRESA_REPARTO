@@ -25,9 +25,8 @@ public class RemoveClienteServlet extends HttpServlet {
         }catch (SQLException sqle) {
             sqle.printStackTrace();
             response.sendRedirect("myform_1.jsp?status=error");
-        }      
+        }         
     }
-    
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
