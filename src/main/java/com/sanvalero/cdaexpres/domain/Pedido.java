@@ -4,32 +4,32 @@ package com.sanvalero.cdaexpres.domain;
  *
  * Un pedido
  */
-public class Pedidos {
+public class Pedido {
     private int idPedido;
-    private int idVehiculo;
-    private int idRepartidor;
-    private int idCliente;
     private String fechaEnvio;
     private String direccion;
-    private int peso;
-    private int precio;
+    private float peso;
+    private float precio;
     private boolean fragil;
     private boolean urgente;
+    private Cliente cliente;
+    private Repartidor repartidor;
+    private Vehiculo vehiculo;
 
-    public Pedidos(int idPedido, int idVehiculo, int idRepartidor, int idCliente, String fechaEnvio, String direccion, int peso, int precio, boolean fragil, boolean urgente) {
+    public Pedido(int idPedido, String fechaEnvio, String direccion, float peso, float precio, boolean fragil, boolean urgente, Cliente cliente, Repartidor repartidor, Vehiculo vehiculo) {
         this.idPedido = idPedido;
-        this.idVehiculo = idVehiculo;
-        this.idRepartidor = idRepartidor;
-        this.idCliente = idCliente;
         this.fechaEnvio = fechaEnvio;
         this.direccion = direccion;
         this.peso = peso;
         this.precio = precio;
         this.fragil = fragil;
         this.urgente = urgente;
+        this.vehiculo = vehiculo;
+        this.repartidor = repartidor;
+        this.cliente = cliente;
     }
 
-    public Pedidos(String fechaEnvio, String direccion, int peso, int precio, boolean fragil, boolean urgente) {
+    public Pedido(String fechaEnvio, String direccion, float peso, float precio, boolean fragil, boolean urgente) {
         this.fechaEnvio = fechaEnvio;
         this.direccion = direccion;
         this.peso = peso;

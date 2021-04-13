@@ -4,14 +4,14 @@ package com.sanvalero.cdaexpres.domain;
  *
  * Un vehiculo
  */
-public class Vehiculos {
+public class Vehiculo {
     private int id;
     private String tipo;
     private String marca;
     private String modelo;
     private String matricula;
 
-    public Vehiculos(int id, String tipo, String marca, String modelo, String matricula) {
+    public Vehiculo(int id, String tipo, String marca, String modelo, String matricula) {
         this.id = id;
         this.tipo = tipo;
         this.marca = marca;
@@ -19,7 +19,7 @@ public class Vehiculos {
         this.matricula = matricula;
     }
 
-    public Vehiculos(String tipo, String marca, String modelo, String matricula) {
+    public Vehiculo(String tipo, String marca, String modelo, String matricula) {
         this.tipo = tipo;
         this.marca = marca;
         this.modelo = modelo;
