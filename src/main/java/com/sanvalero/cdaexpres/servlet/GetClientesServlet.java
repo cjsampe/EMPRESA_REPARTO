@@ -27,7 +27,9 @@ public class GetClientesServlet extends HttpServlet {
             ArrayList<Cliente> clientes = clienteDAO.getAllClientes();
             out.println("<ul>");
             for (Cliente cliente : clientes) {
-                out.println("<li>" + cliente.getNombre() + " <a href='remove-cliente?id=" + cliente.getId() + "'>Eliminar</a></li>");
+                out.println("<li>" + cliente.getNombre() + " " + cliente.getDni() +
+                        " " + cliente.getTelefono() + " " + cliente.getEmail() +
+                        " <a href='remove-cliente?id=" + cliente.getId() + "'>Eliminar</a></li>");
             }
             // FIXME cliente de ejemplo (eliminar cuando se desarrolle el listado)
             out.println("<li>Cliente de ejemplo</li> <a href='remove-cliente?id=23'>Eliminar</a></li>");

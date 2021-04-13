@@ -75,15 +75,12 @@ public class ClienteDAO {
         PreparedStatement sentencia = connection.prepareStatement(sql);
         ResultSet resultado = sentencia.executeQuery();
         while (resultado.next()) {
-            Cliente cliente = new Cliente(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getString(4), resultado.getString(5));
-
+            Cliente cliente = new Cliente(resultado.getInt(1), resultado.getString(2),
+                    resultado.getString(3), resultado.getString(4), resultado.getString(5));
             clientes.add(cliente);
         }
-        
-       
         return clientes;
     }
-    
     
     /**
      * Elimina un cliente
@@ -97,12 +94,11 @@ public class ClienteDAO {
         sentencia.executeUpdate();
     }
     
-    
     /**
      * Modifica la información de un cliente
-     * @param cliente La película con la información a modificar
+     * @param cliente El cliente con la información a modificar
      */
-    public void modifyMovie(Cliente cliente) {
-        
+    public void modifyCliente(Cliente cliente) {
+                 
     }
 }
