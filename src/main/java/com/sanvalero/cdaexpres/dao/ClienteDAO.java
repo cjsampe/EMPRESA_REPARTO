@@ -83,14 +83,35 @@ public class ClienteDAO {
     }
     
     /**
+     * Obtiene un cliente de la base de datos
+     * @param dni para buscar por el cliente
+     * @return Una colección con el clientee encontrado
+     */
+    public ArrayList<Cliente> getClientesDni(String dni) throws SQLException { 
+        String sql = "SELECT cliente_id, nombre, dni, telefono, email FROM clientes WHERE "
+                + "dni = (?)";
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        
+        PreparedStatement sentencia = connection.prepareStatement(sql);
+        sentencia.setString(1, dni);
+        ResultSet resultado = sentencia.executeQuery();
+        while (resultado.next()) {
+            Cliente cliente = new Cliente(resultado.getInt(1), resultado.getString(2),
+                    resultado.getString(3), resultado.getString(4), resultado.getString(5));
+            clientes.add(cliente);
+        }
+        return clientes;
+    }
+    
+    /**
      * Elimina un cliente
      * @param id El id del cliente a eliminar
      */
-    public void removeCliente(int id) throws SQLException {
-        String sql = "DELETE FROM clientes WHERE cliente_id = (?)";
+    public void removeCliente(String dni) throws SQLException {
+        String sql = "DELETE FROM clientes WHERE dni = (?)";
 
         PreparedStatement sentencia = connection.prepareStatement(sql);
-        sentencia.setInt(1, id);
+        sentencia.setString(1, dni);
         sentencia.executeUpdate();
     }
     
