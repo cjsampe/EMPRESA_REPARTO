@@ -107,11 +107,11 @@ public class ClienteDAO {
      * Elimina un cliente
      * @param id El id del cliente a eliminar
      */
-    public void removeCliente(String dni) throws SQLException {
-        String sql = "DELETE FROM clientes WHERE dni = (?)";
+    public void removeCliente(int id) throws SQLException {
+        String sql = "DELETE FROM clientes WHERE cliente_id = ?";
 
         PreparedStatement sentencia = connection.prepareStatement(sql);
-        sentencia.setString(1, dni);
+        sentencia.setInt(1, id);
         sentencia.executeUpdate();
     }
     
@@ -141,7 +141,14 @@ public class ClienteDAO {
      * Modifica la información de un cliente
      * @param cliente El cliente con la información a modificar
      */
-    public void modifyCliente(Cliente cliente) {
-                 
+    public void modifyCliente(Cliente cliente) throws SQLException {
+        String sql = "UPDATE clientes SET nombre = ?, dni = ?, telefono = ?, email = ? WHERE cliente_id = ?";
+        PreparedStatement sentencia = connection.prepareStatement(sql);
+        sentencia.setString(1, cliente.getNombre());
+        sentencia.setString(2, cliente.getDni());
+        sentencia.setString(3, cliente.getTelefono());
+        sentencia.setString(4, cliente.getEmail());
+        sentencia.setInt(5, cliente.getId());
+        sentencia.executeUpdate();
     }
 }
