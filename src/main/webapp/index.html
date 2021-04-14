@@ -1,17 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Start Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+        <title>Tú empresa de reparto</title>
+        <link rel="shortcut icon" href="IMGcdaexpres/logo_pestañacda.png"> 
+        <link rel="stylesheet" href="CSScdaexpres/estilos_cdaexpress.css">
+        <link href = "https://fonts.googleapis.com/css2? family = Kanit: wght @ 600 & display = swap" rel = "stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <img src="images/logo.jpg"/>
-        <p>Accede una <a href="mypage.jsp">página JSP de ejemplo</a></p>
-        <p>Registra un cliente desde <a href="myform.jsp">aqui</a></p>
-        <p>Elimina un cliente desde <a href="myform_1.jsp">aqui</a></p>
-        <p>Consulta un cliente intruduciendo el dni desde <a href="myform_2.jsp">aqui</a></p>
-        <p>Desde aqui podrás ver el <a href="clientes">listado de clientes (con servlet)</a></p>
-        <p>Desde aqui podrás ver el <a href="cliente.jsp">listado de clientes (con JSP)</a></p>
+        <header>
+            <nav class="menu-navegacion contenedor">
+                <div class="logo">   
+                    <img src="images/logo_cdaexpres.jpg" alt="">
+                </div>
+            </nav>
+            <section class="hero">
+                <div class="contenedor-textos contenedor">
+                    <h1>Nos movemos por ti</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde.</p>
+                    <!--<a href="#" class="boton">Leer más</a> -->
+                </div>
+            </section>
+        </header>
+        <br>
+        <br>
+        <main>
+    
+            <div class="slideshow-container">
+        
+                <div class="mySlides fade">
+               <img src="images/1.2.jpg" style="width:100%">
+            </div>
+        
+            <div class="mySlides fade">
+               <img src="images/2.2.jpg" style="width:100%">
+            </div>
+        
+            <div class="mySlides fade">
+               <img src="images/3.2.jpg" style="width:100%">
+            </div>   
+        
+            <div class="mySlides fade">
+                <img src="images/4.2.jpg" style="width:100%">
+             </div>   
+        
+             <div class="mySlides fade">
+                <img src="images/5.2.jpg" style="width:100%">
+             </div>  
+        
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+               <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div> 
+                <script src="JAVASCRcdaexpres/javascript_cdaexpress.js"></script> 
+        <div>
+        <main>
+            <section class="contenedor">
+                <h2 class="titulo-seccion">Elige que quieres hacer</h2>
+                <br>
+                   <br>
+                <div class="beneficios">
+                    <div class="beneficio">
+                         <!-- ENLAZA CON REGISTRA CLIENTE-->
+                         <h3><a style="text-decoration:none" href="cliente.jsp"><font color="orange">Clientes</font></a></h3>
+                    </div>
+                    <div class="beneficio">
+                        <h3><a style="text-decoration:none" href="pedido.jsp"><font color="blue">Pedidos</font></a></h3>
+                    </div>
+                </div>
+            </section>
+        </main>
+        </div>
     </body>
 </html>
