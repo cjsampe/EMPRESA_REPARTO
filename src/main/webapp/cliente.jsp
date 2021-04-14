@@ -7,6 +7,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listado de Clientes</title>
+        <link rel="shortcut icon" href="images/logo_pestanacda.png">
+        <link rel="stylesheet" href="CSScdaexpres/estilos_clientes.css">
         <style>
             .contenido {
                 display: flex;
@@ -111,7 +113,24 @@
         </style>
     </head>
     <body>
-        <h1>Lista de Clientes (con JSP)</h1>
+        <header>
+            <nav class="menu-navegacion contenedor">
+                <div class="logo">   
+                    <img src="images/logo_cdaexpres.jpg" alt="">
+                </div>
+                <div class="enlaces">  
+                        <li><a href="#">Pedidos</a></li>
+                        <li><a href="#"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                </div>
+            </nav>
+            <section class="hero">
+                <div class="contenedor-textos contenedor">
+                    <h1>Lista de Clientes (con JSP) </h1>
+                </div>
+            </section>
+        </header>
+        <br>
+        <br>
         <%
             ClienteDAO clienteDAO = new ClienteDAO();
             ArrayList<Cliente> clientes = clienteDAO.getAllClientes();
