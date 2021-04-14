@@ -1,0 +1,241 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --colorTextos: #0e0d0d;
+    --colorBotones: #e6e7f3;
+    --colorFondo: #838688;
+    --paddingSecciones: 30px 0;
+    --marginElementos: 10px;
+}
+
+body{
+    font-family: 'Kanit', sans-serif;
+}
+
+
+.contenedor{
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: var(--paddingSecciones);
+}
+
+/* Menu */
+
+.menu-navegacion{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+}
+
+.logo{
+    height: 70px;
+}
+
+.logo img{
+    display: block;
+    height: 100%;
+}
+
+
+/* Hero */
+
+.hero{
+    height: 400px;
+    background-image: url("../images/9.0.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contenedor-textos{
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:rgb(97, 124, 179);
+    text-shadow: 1px 1px #080808;
+    text-align: center;
+}
+
+.hero h1{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.hero p{
+    font-weight: 700;
+    font-size: 25px;
+    margin: 15px 0;
+}
+
+
+/*slider*/
+/* se le da propiedades al contenedor*/
+.slideshow-container{
+    max-width: 700px;
+    position:relative;
+    margin:auto;
+   }
+
+/* aquí tendremos las imagenes que aparecen por defecto*/
+.mySlides{
+    display:none;
+   }
+/*estilos para los botones de retroceder y avanzar*/
+.prev, .next{
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    width:auto;
+    margin-top:-22px;
+    padding:16px;
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+    transition:0.6s ease;
+    border-radius:0 3px 3px 0;
+   }
+/*botones izquierda y derecha*/
+.next{
+    right:0;
+    border-radius:3px 0 0 3px;
+   }
+
+/*efecto cambio de tonalidad*/
+.prev:hover, .next:hover{
+    background-color:rgba(0,0,0,0.8);
+   }
+
+
+/*Animaciones imagenes*/
+.fade{
+    -webkit-animation-name:fade;
+    -webkit-animation-duration:1.5s;
+    animation-name:fade;
+    animation-duration:3.0s;
+   }
+   
+   @-webkit-keyframes fade{
+    from{opacity:.4}
+    to{opacity:1}
+   }
+   
+   @keyframes fade{
+    from{opacity:.4}
+    to{opacity:1}
+   }
+
+/*Botones - Main */
+
+
+.titulo-seccion{
+    text-align: center;
+    font-size: 35px;
+    color: var(--colorFondo);
+}
+
+.copy{
+   
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--colorTextos);
+    margin: 20px 0;
+}
+
+.beneficios{
+    padding-top: var(--marginElementos);
+    display: flex;
+    justify-content: space_evenly;
+    flex-wrap: wrap;
+}
+
+
+.beneficio{
+    font-size: 20px;
+    width: 10em;
+    height: 10em;
+    text-decoration: none;
+    background-image: url("../images/9.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+
+/*RESPONSIVE*/
+
+@media screen and (max-width:800px){
+    .menu-navegacion{
+        flex-direction: column;
+        height: 120px;
+        justify-content: space-evenly;
+    }
+
+    .hero h1{
+        font-size: 38px;
+    }
+    .contenedor-imagenes img{
+        width: 90%;
+    }
+
+    .redes-sociales{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .redes-sociales i{
+        margin-bottom: 20px;
+    }
+    
+    .containerslider{
+        width: 90%;
+    }
+    ul.slider li,ul{
+        width: 90%; 
+        flex-direction: column;
+        align-items: center; 
+    }  
+}
+@media screen and (max-width: 700px){
+        .tabla2{
+            width: 45%;
+            padding:30px;
+        }
+        .tabla2 > h2{
+            margin-top:40px;
+        }
+        .contenedor-imagenes2{
+            width: 85%; 
+            flex-direction: column;
+            align-items: center; 
+        }
+        .contenedor-imagenes2 .imagen2{
+            width: 85%;
+        }
+        .galeria h1{
+            font-size:40px;
+        }
+    }
+    
+    @media screen and (max-width:550px){
+        .tabla2{
+            width: 85%;
+            padding: 20px;
+        }
+        
+    }
