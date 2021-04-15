@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listado de Clientes</title>
+        <title>Customers</title>
         <link rel="shortcut icon" href="images/logo_pestanacda.png">
         <link rel="stylesheet" href="CSScdaexpres/estilos_clientes.css">
         <script src="https://kit.fontawesome.com/653631b56e.js" crossorigin="anonymous"></script>
@@ -21,14 +21,14 @@
                     <img src="images/logo_cdaexpres.jpg" alt="">
                 </div>
                 <div class="enlaces"> 
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="pedido.jsp">Pedidos</a></li>
-                        <li><a href="cliente_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                        <li><a href="index_ingles.jsp">Index</a></li>
+                        <li><a href="pedido_ingles.jsp">Orders</a></li>
+                        <li><a href="cliente.jsp"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
                 </div>
             </nav>
             <section class="hero">
                 <div class="contenedor-textos contenedor">
-                    <h1>Lista de Clientes (con JSP) </h1>
+                    <h1>Customers List (with JSP)) </h1>
                 </div>
             </section>
         </header>
@@ -41,21 +41,21 @@
         %>
         <div class="contenido">
             <div>
-                <div id="nuevo" onclick="nuevo()"><p>Nuevo cliente</p></div>
+                <div id="nuevo" onclick="nuevo()"><p>New customer</p></div>
                 <form id="form" method="post" action="nuevo-cliente">
-                    <input type="text" name="nombre" placeholder="Nombre"
+                    <input type="text" name="nombre" placeholder="Name"
                         pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required/>
                     <input type="text" name="dni" placeholder="DNI" pattern="[A-Za-z0-9!?-]{9}" required/>
-                    <input type="text" name="telefono" placeholder="Teléfono" required/>
+                    <input type="text" name="telefono" placeholder="Phone" required/>
                     <input type="text" name="email" placeholder="Email"
                            pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/>
-                    <input type="submit" value="Añadir cliente"/>
+                    <input type="submit" value="Add customer"/>
                 </form>
             </div>
             <div class="lista">
                 <form id="buscar">
-                    <input id="buscador" type="text" placeholder="Busca por nombre">
-                    <input type="button" value="Buscar" onclick="buscar()">
+                    <input id="buscador" type="text" placeholder="Search by name">
+                    <input type="button" value="Search" onclick="buscar()">
                 </form>
                 <%
                     for (Cliente cliente : clientes) {
@@ -66,8 +66,8 @@
                     }
                 %>
                 <div id="paginacion">
-                    <input id="anterior" type="button" value="Anterior" onclick="pagina(1)">
-                    <input id="siguiente" type="button" value="Siguiente" onclick="pagina(2)">
+                    <input id="anterior" type="button" value="Previous" onclick="pagina(1)">
+                    <input id="siguiente" type="button" value="Next" onclick="pagina(2)">
                 </div>
             </div>
             <div class="detalle">
@@ -76,22 +76,22 @@
                         int clienteId = cliente.getId();
                 %>
                 <div id="<%=clienteId%>" class="datos">
-                    <div>Nombre: <%= cliente.getNombre()%></div>
+                    <div>Name: <%= cliente.getNombre()%></div>
                     <div>DNI: <%= cliente.getDni()%></div>
-                    <div>Teléfono: <%= cliente.getTelefono()%></div>
+                    <div>Phone: <%= cliente.getTelefono()%></div>
                     <div>E-mail: <%= cliente.getEmail()%></div>
 
                     <div class="botones">
                         <form method="post" id="modificar">
-                            <input type="button" value="Modificar cliente" onclick="modificar(<%= cliente.getId()%>)">
+                            <input type="button" value="Change customer" onclick="modificar(<%= cliente.getId()%>)">
                         </form>
                         <form method="post" id="eliminar" action="remove-cliente">
                             <input class="inputOculto" type="text" value="<%=cliente.getId()%>" name="eliminarCliente">
-                            <input type="submit" value="Eliminar cliente">
+                            <input type="submit" value="Delete customer">
                         </form>
                         <form method="post" id="consultar" action="consultar-cliente">
                             <input class="inputOculto" type="text" value="<%=cliente.getId()%>" name="consultar">
-                            <input type="button" value="Ver pedidos realizados" onclick="mostrarPedidos(<%= cliente.getId()%>)">
+                            <input type="button" value="View orders placed" onclick="mostrarPedidos(<%= cliente.getId()%>)">
                         </form>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                         <input type="text" name="dni" value="<%= cliente.getDni()%>"/>
                         <input type="text" name="telefono" value="<%= cliente.getTelefono()%>"/>
                         <input type="text" name="email" value="<%= cliente.getEmail()%>"/>
-                        <input type="submit" value="Actualizar"/>
+                        <input type="submit" value="Update"/>
                     </form>
                 </div>
                 <%    
@@ -129,12 +129,12 @@
                         }
                 %>
                     <div class="pedidos mostrar<%=cliente.getId()%>">
-                        <div class="pedidoFecha">Fecha: <%=pedido.getFechaEnvio()%></div>
-                        <div class="pedidoDireccion">Dirección: <%=pedido.getDireccion()%></div>
+                        <div class="pedidoFecha">Date: <%=pedido.getFechaEnvio()%></div>
+                        <div class="pedidoDireccion">Address: <%=pedido.getDireccion()%></div>
                         <div class="pedidoPeso">Peso: <%=pedido.getPeso()%></div>
-                        <div class="pedidoPrecio">Precio: <%=pedido.getPrecio()%></div>
-                        <div class="pedidoFragil">Frágil: <%=fragil%></div>
-                        <div class="pedidoUrgente">Urgente: <%=urgente%></div>
+                        <div class="pedidoPrecio">Weight: <%=pedido.getPrecio()%></div>
+                        <div class="pedidoFragil">Fragile: <%=fragil%></div>
+                        <div class="pedidoUrgente">Urgent: <%=urgente%></div>
                     </div>
                     
                 <%
@@ -161,9 +161,9 @@
             </div>
             <div class="enlaces">
                 <ul>
-                        <li><a href="aviso_legal.jsp">Aviso Legal</a></li>
-                        <li><a href="politica_privacidad.jsp">Politica de privacidad</a></li>
-                        <li><a href="cliente_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                        <li><a href="aviso_legal_ingles.jsp">Legal warning</a></li>
+                        <li><a href="politica_privacidad_ingles.jsp">Privacy Policy</a></li>
+                        <li><a href="cliente.jsp"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
                 </ul>
             </div> 
             
@@ -178,9 +178,9 @@
                 status = "";
                 
             if (status.equals("ok")) {
-                out.println("<p style='color:green'>Se han guardado los cambios</p>");
+                out.println("<p style='color:green'>Changes have been saved</p>");
             } else if (status.equals("error")) {
-                out.println("<p style='color:red'>Ha habido un error realizando los cambios</p>");
+                out.println("<p style='color:red'>There has been an error making the changes</p>");
             }
         %>
 </html>
