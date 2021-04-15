@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <title>Tú empresa de reparto</title>
+        <title>Your delivery company</title>
         <link rel="shortcut icon" href="images/logo_pestanacda.png"> 
         <link rel="stylesheet" href="CSScdaexpres/estilos_cdaexpress.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,16 +15,16 @@
                 </div>
                 <div class="enlaces"> 
                     <ul>
-                        <li><a href="cliente.jsp">Clientes</a></li>
-                        <li><a href="pedido.jsp">Pedidos</a></li>
-                        <li><a href="index_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                        <li><a href="cliente.jsp">Customers</a></li>
+                        <li><a href="pedido.jsp">Orders</a></li>
+                        <li><a href="index.html"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
                     </ul>
                 </div>
             </nav>
             <section class="hero">
                 <div class="contenedor-textos contenedor">
-                    <h1>Nos movemos por ti</h1>
-                    <p>Tú empresa de paquetería nacional</p>
+                    <h1>We move for you</h1>
+                    <p>Your national parcel company</p>
                     <!--<a href="#" class="boton">Leer más</a> -->
                 </div>
             </section>
@@ -32,24 +32,24 @@
         <br>    
         <br>
         <section class="contenedor">
-            <h2 class="titulo-seccion">Elige que quieres hacer</h2>
+            <h2 class="titulo-seccion">Choose what you want to do</h2>
         </section>
         <br>
         <main class="grid-container">
             <div class="item">
                 <img src="images/5.2.jpg" alt="" class="img">
                 <div class="contenedor-texto">
-                    <h2 class="title-card">Clientes</h2>
-                    <p class="card-copy">Accede a los datos de nuestros clientes</p>
-                    <a href="cliente.jsp" class="cta">Ir ahora</a>
+                    <h2 class="title-card">Customers</h2>
+                    <p class="card-copy">Access the data of our customers</p>
+                    <a href="cliente.jsp" class="cta">Go now</a>
                 </div>
             </div>
             <div class="item">
                 <img src="images/3.2.jpg" alt="" class="img">
                 <div class="contenedor-texto">
-                    <h2 class="title-card">Pedidos</h2>
-                    <p class="card-copy">Accede a los datos de nuestros pedidos</p>
-                    <a href="pedido.jsp" class="cta">Ir ahora</a>
+                    <h2 class="title-card">Orders</h2>
+                    <p class="card-copy">Access the data of our orders</p>
+                    <a href="pedido.jsp" class="cta">Go now</a>
                 </div>
             </div>
         </main>
@@ -91,9 +91,9 @@
             </div>
             <div class="enlaces">
                 <ul>
-                        <li><a href="aviso_legal.jsp">Aviso Legal</a></li>
-                        <li><a href="politica_privacidad.jsp">Politica de privacidad</a></li>
-                        <li><a href="index_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                        <li><a href="aviso_legal_ingles.jsp">Legal warning</a></li>
+                        <li><a href="politica_privacidad_ingles.jsp">Privacy Policy</a></li>
+                        <li><a href="index.html"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
                 </ul>
             </div> 
             

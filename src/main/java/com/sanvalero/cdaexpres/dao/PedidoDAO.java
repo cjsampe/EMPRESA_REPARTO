@@ -117,6 +117,38 @@ public class PedidoDAO {
         return pedidos;
     }
     
+    /**
+     * Obtiene la lista de pedidos de un cliente seleccionado
+     * @param id del cliente a consultar
+     * @return Una colección con los pedidos
+     */
+    public ArrayList<Pedido> getPedidosCliente(Cliente cliente) throws SQLException { 
+        String sql = "SELECT p.fecha_envio, p.direccion, p.peso, p.precio, p.fragil, p.urgente FROM pedidos p WHERE "
+                + "p.cliente_id = ?";
+        ArrayList<Pedido> pedidos = new ArrayList<>();
+        
+        PreparedStatement sentencia = connection.prepareStatement(sql);
+        sentencia.setInt(1, cliente.getId());
+        ResultSet resultado = sentencia.executeQuery();
+        while (resultado.next()) {
+        // Cambiar formato int a booleano por la base de datos
+            boolean fragil = false;
+            boolean urgente = false;
+            if (resultado.getInt(4) == 1) {
+                fragil = true;
+            }
+            if (resultado.getInt(5) == 1) {
+                urgente = true;
+            }
+
+            Pedido pedido = new Pedido(0, resultado.getString(1), resultado.getString(2), resultado.getFloat(3), resultado.getFloat(4), fragil, urgente, null, null, null);
+            pedidos.add(pedido);
+        }
+        
+       
+        return pedidos;
+    }
+    
     
     /**
      * Elimina un cliente
