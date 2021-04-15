@@ -51,7 +51,7 @@ body{
     margin: 0 auto;
     padding: 12px 0;
     background: var(--colorBotones);
-    color: #fff;
+    color: white;
     text-decoration: none;
     border-radius: 15px;
     text-align: center;
@@ -75,7 +75,7 @@ body{
 /* Hero */
 
 .hero{
-    height: 400px;
+    height: 300px;
     background-image: url("../images/9.0.jpg");
     background-position: center;
     background-size: cover;
