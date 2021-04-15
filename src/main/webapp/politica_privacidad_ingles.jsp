@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
         <title>Privacy policy CDAexpress</title>
         <link rel="shortcut icon" href="images/logo_pestañacda.png"> 
-        <link rel="stylesheet" href="CSScdaexpres/estilos_Politica de privacidad.css">
+        <link rel="stylesheet" href="CSScdaexpres/estilos_politica_privacidad.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href = "https://fonts.googleapis.com/css2? family = Kanit: wght @ 600 & display = swap" rel = "stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,6 +16,7 @@
                     <img src="images/logo_cdaexpres.jpg" alt="">
                 </div>
                 <div class="enlaces">
+                    <li><a href="index_ingles.jsp">Index</a></li>
                     <li><a href="#">Customers</a></li>
                     <li><a href="#">Orders</a></li>
                     <li><a href="politica_privacidad.jsp" class="boton"><img src="images/bandera_espanola.jpg" style="width:70%"></a></li>
@@ -74,9 +75,9 @@
             <br>
             <br>
             <h3>Personal data security</h3>
-            Para proteger tus datos personales, el Titular toma todas las precauciones razonables 
-            y sigue las mejores prácticas de la industria para evitar su pérdida, mal uso, acceso 
-            indebido, divulgación, alteración o destrucción de los mismos.
+            To protect your personal data, the Holder takes all reasonable precautions
+            and follows industry best practices to prevent loss, misuse, access
+            undue, disclosure, alteration or destruction of the same.
             
             <br>
             <br>

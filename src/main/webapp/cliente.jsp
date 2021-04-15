@@ -118,8 +118,9 @@
                 <div class="logo">   
                     <img src="images/logo_cdaexpres.jpg" alt="">
                 </div>
-                <div class="enlaces">  
-                        <li><a href="#">Pedidos</a></li>
+                <div class="enlaces"> 
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="pedido.jsp">Pedidos</a></li>
                         <li><a href="#"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
                 </div>
             </nav>
@@ -141,8 +142,8 @@
                 <form id="form" method="post" action="nuevo-cliente">
                     <input type="text" name="nombre" placeholder="Nombre"
                         pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required/>
-                    <input type="text" name="dni" placeholder="DNI"/>
-                    <input type="text" name="telefono" placeholder="Teléfono"/>
+                    <input type="text" name="dni" placeholder="DNI" pattern="[A-Za-z0-9!?-]{9}" required/>
+                    <input type="text" name="telefono" placeholder="Teléfono" pattern="/^[0-9]{9}$/" required/>
                     <input type="text" name="email" placeholder="Email"
                            pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/>
                     <input type="submit" value="Añadir cliente"/>
@@ -207,6 +208,25 @@
         <%        
             }
         %>
+        <footer>
+            <div class="redes-sociales">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-windows"></i>
+            </div>
+            <div class="enlaces">
+                <ul>
+                        <li><a href="aviso_legal.jsp">Aviso Legal</a></li>
+                        <li><a href="politica_privacidad.jsp">Politica de privacidad</a></li>
+                        <li><a href="index_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                </ul>
+            </div> 
+            
+        <br>
+        <br>
+        </footer>
+        <script src="https://kit.fontawesome.com/653631b56e.js" crossorigin="anonymous"></script>
     </body>
     <script>
         

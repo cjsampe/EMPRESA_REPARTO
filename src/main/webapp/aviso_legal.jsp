@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
         <title>Aviso Legal CDAexpress</title>
         <link rel="shortcut icon" href="images/logo_pestañacda.png"> 
-        <link rel="stylesheet" href="CSScdaexpres/estilos_Politica de privacidad.css">
+        <link rel="stylesheet" href="CSScdaexpres/estilos_politica_privacidad.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href = "https://fonts.googleapis.com/css2? family = Kanit: wght @ 600 & display = swap" rel = "stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -147,7 +147,7 @@
                 <ul>
                     <!-- <li><li><a href="#">Aviso Legal</a></li>-->
                     <li><a href="politica_privacidad.jsp">Politica de privacidad</a></li> 
-                    <li><a href="aviso_legal_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                    <li><a href="aviso_legal_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:10%"></a></li>
                  </ul>
             </div> 
             <br>
