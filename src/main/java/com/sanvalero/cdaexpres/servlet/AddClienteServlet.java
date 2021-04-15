@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet que añade una ciudad a la base de datos
+ * Servlet que añade un cliente a la base de datos
  */
 @WebServlet(name = "nuevo-cliente", urlPatterns = {"/nuevo-cliente"})
 public class AddClienteServlet extends HttpServlet {
