@@ -1,8 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 :root{
     --colorTextos: #0e0d0d;
@@ -117,7 +113,7 @@ footer{
     padding-top: var(--marginElementos);
     width: 80%;
     display: flex;
-    margin: auto;
+    margin: bottom;
     justify-content: space-evenly;   
 }
 .redes-sociales p{
@@ -132,6 +128,7 @@ footer{
     color: rgb(249, 249, 250);
     margin: 15px 20px;
 }
+
 /*RESPONSIVE*/
 
 @media screen and (max-width:800px){
