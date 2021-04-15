@@ -139,10 +139,12 @@
             <div>
                 <div id="nuevo" onclick="nuevo()"><p>Nuevo cliente</p></div>
                 <form id="form" method="post" action="nuevo-cliente">
-                    <input type="text" name="nombre" placeholder="Nombre"/>
+                    <input type="text" name="nombre" placeholder="Nombre"
+                        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required/>
                     <input type="text" name="dni" placeholder="DNI"/>
                     <input type="text" name="telefono" placeholder="Teléfono"/>
-                    <input type="text" name="email" placeholder="Email"/>
+                    <input type="text" name="email" placeholder="Email"
+                           pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/>
                     <input type="submit" value="Añadir cliente"/>
                 </form>
             </div>
