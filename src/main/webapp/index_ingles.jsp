@@ -15,8 +15,8 @@
                 </div>
                 <div class="enlaces"> 
                     <ul>
-                        <li><a href="cliente.jsp">Customers</a></li>
-                        <li><a href="pedido.jsp">Orders</a></li>
+                        <li><a href="cliente_ingles.jsp">Customers</a></li>
+                        <li><a href="pedido_ingles.jsp">Orders</a></li>
                         <li><a href="index.html"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
                     </ul>
                 </div>
@@ -41,7 +41,7 @@
                 <div class="contenedor-texto">
                     <h2 class="title-card">Customers</h2>
                     <p class="card-copy">Access the data of our customers</p>
-                    <a href="cliente.jsp" class="cta">Go now</a>
+                    <a href="cliente_ingles.jsp" class="cta">Go now</a>
                 </div>
             </div>
             <div class="item">
@@ -49,7 +49,7 @@
                 <div class="contenedor-texto">
                     <h2 class="title-card">Orders</h2>
                     <p class="card-copy">Access the data of our orders</p>
-                    <a href="pedido.jsp" class="cta">Go now</a>
+                    <a href="pedido_ingles.jsp" class="cta">Go now</a>
                 </div>
             </div>
         </main>

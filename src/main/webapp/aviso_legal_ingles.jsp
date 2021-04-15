@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
         <title>Legal warning CDAexpress</title>
-        <link rel="shortcut icon" href="images/logo_pestañacda.png"> 
+        <link rel="shortcut icon" href="images/logo_pestanacda.png"> 
         <link rel="stylesheet" href="CSScdaexpres/estilos_politica_privacidad.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href = "https://fonts.googleapis.com/css2? family = Kanit: wght @ 600 & display = swap" rel = "stylesheet">
@@ -18,8 +18,8 @@
                 <div class="enlaces">
                    <ul>
                     <li><a href="index_ingles.jsp">Index</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <li><a href="#">Orders</a></li>
+                    <li><a href="cliente_ingles.jsp">Customers</a></li>
+                    <li><a href="pedido_ingles.jsp">Orders</a></li>
                     <li><a href="aviso_legal.jsp" class="boton"><img src="images/bandera_espanola.jpg" style="width:70%"></a></li>
                    </ul>
                 </div>
@@ -35,7 +35,7 @@
         <div class="contenedor-text contenedor">
         <p>
             <h3>Identification and Ownership</h3>
-            n compliance with article 10 of Law 34/2002,
+            In compliance with article 10 of Law 34/2002,
             of July 11, Services of the Information Society and
             Electronic Commerce, the Holder exposes his identification data.
             <br>

@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
         <title>Privacy policy CDAexpress</title>
-        <link rel="shortcut icon" href="images/logo_pestañacda.png"> 
+        <link rel="shortcut icon" href="images/logo_pestanacda.png"> 
         <link rel="stylesheet" href="CSScdaexpres/estilos_politica_privacidad.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href = "https://fonts.googleapis.com/css2? family = Kanit: wght @ 600 & display = swap" rel = "stylesheet">
@@ -17,8 +17,8 @@
                 </div>
                 <div class="enlaces">
                     <li><a href="index_ingles.jsp">Index</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <li><a href="#">Orders</a></li>
+                    <li><a href="cliente_ingles.jsp">Customers</a></li>
+                    <li><a href="pedido_ingles.jsp">Orders</a></li>
                     <li><a href="politica_privacidad.jsp" class="boton"><img src="images/bandera_espanola.jpg" style="width:70%"></a></li>
                 </div>
             </nav>
