@@ -1,3 +1,5 @@
+<%@page import="com.sanvalero.cdaexpres.dao.PedidoDAO"%>
+<%@page import="com.sanvalero.cdaexpres.domain.Pedido"%>
 <%@page import="com.sanvalero.cdaexpres.domain.Cliente"%>
 <%@page import="com.sanvalero.cdaexpres.dao.ClienteDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -25,6 +27,7 @@
                 margin: 2px 0px;
                 padding: 14px;
                 border: 1px solid #3333ff;
+                display: none;
             }
             .detalle {
                 flex: 70%;
@@ -44,7 +47,7 @@
                 justify-content: space-between;
             }
             #modificar {
-                width: 48%;
+                width: 32%;
                 height: 32px;
             }
             #modificar input {
@@ -53,11 +56,20 @@
                 height: 100%;
             }
             #eliminar {
-                width: 48%;
+                width: 32%;
                 height: 32px;
             }
             #eliminar input {
                 background-color: red;
+                width: 100%;
+                height: 100%;
+            }
+            #consultar {
+                width: 32%;
+                height: 32px;
+            }
+            #consultar input {
+                background-color: cadetblue;
                 width: 100%;
                 height: 100%;
             }
@@ -108,9 +120,21 @@
                 height: 32px;
                 width: 25%;
             }
+            .pedidos {
+                display: none;
+                background-color: #f1f1f1;
+                height: 30px;
+                margin: 2px 0px;
+                padding: 14px;
+                border: 1px solid #3333ff;
+                grid-template-columns: 25% 25% 15% 15% 10% 10%;
+            }
+            #seccionPedidos {
+                margin-top: 10px;
+            }
         </style>
     </head>
-    <body>
+    <body onload="pagina(0)">
         <h1>Lista de Clientes (con JSP)</h1>
         <%
             ClienteDAO clienteDAO = new ClienteDAO();
@@ -140,6 +164,9 @@
                 <%    
                     }
                 %>
+                <div>
+                    <input type="button" value=">" onclick="pagina(1)">
+                </div>
             </div>
             <div class="detalle">
                 <%
@@ -160,6 +187,10 @@
                             <input class="inputOculto" type="text" value="<%=cliente.getId()%>" name="eliminarCliente">
                             <input type="submit" value="Eliminar cliente">
                         </form>
+                        <form method="post" id="consultar" action="consultar-cliente">
+                            <input class="inputOculto" type="text" value="<%=cliente.getId()%>" name="consultar">
+                            <input type="button" value="Ver pedidos realizados" onclick="mostrarPedidos(<%= cliente.getId()%>)">
+                        </form>
                     </div>
                 </div>
                 <div>
@@ -174,6 +205,38 @@
                 </div>
                 <%    
                     }
+                %>
+            </div>
+        </div>
+        <div id="seccionPedidos">
+            <%
+                for (Cliente cliente : clientes) {
+                PedidoDAO pedidoDAO = new PedidoDAO();
+                ArrayList<Pedido> pedidos = pedidoDAO.getPedidosCliente(cliente);
+            %>
+            <div>
+                <%
+                    String fragil = "No";
+                    String urgente = "No";
+                    for (Pedido pedido : pedidos) {
+                        if (pedido.isFragil() == true) {
+                            fragil = "Sí";
+                        }
+                        if (pedido.isUrgente() == true) {
+                            urgente = "Sí";
+                        }
+                %>
+                    <div class="pedidos mostrar<%=cliente.getId()%>">
+                        <div class="pedidoFecha">Fecha: <%=pedido.getFechaEnvio()%></div>
+                        <div class="pedidoDireccion">Dirección: <%=pedido.getDireccion()%></div>
+                        <div class="pedidoPeso">Peso: <%=pedido.getPeso()%></div>
+                        <div class="pedidoPrecio">Precio: <%=pedido.getPrecio()%></div>
+                        <div class="pedidoFragil">Frágil: <%=fragil%></div>
+                        <div class="pedidoUrgente">Urgente: <%=urgente%></div>
+                    </div>
+                <%
+                    }
+                }
                 %>
             </div>
         </div>
@@ -192,6 +255,38 @@
         var numClientes = document.getElementsByClassName("cliente");
         var numDatos = document.getElementsByClassName("datos");
         var numForm = document.getElementsByClassName("actualizar");
+        var numPedidos = document.getElementsByClassName("pedidos");
+        var pagActual = 0;
+        
+        function pagina(pag) {
+            if (pag === 1) {
+                pagActual = pagActual+1;
+            }
+            numPag = pagActual*10;
+            for (var i = 0; i < 10; i++) {
+                    numClientes[i].style.display = "none";
+                }
+            if (numClientes.length > 10) {
+                for (var i = 0; i < 10; i++) {
+                    numClientes[i+numPag].style.backgroundColor = '#f1f1f1';
+                    numClientes[i+numPag].style.display = "block";
+                }
+            } else {
+                for (var i = 0; i < numClientes.length; i++) {
+                    numClientes[i].style.backgroundColor = '#f1f1f1';
+                    numClientes[i].style.display = "block";
+                }
+            }
+        }
+        
+        function ocultar() {
+            for (var i = 0; i < numForm.length; i++) {
+                numForm[i].style.display = 'none';
+            }
+            for (var i = 0; i < numPedidos.length; i++) {
+                numPedidos[i].style.display = "none";
+            }
+        }
         
         function verCliente(cliente, id) {
             for (var i = 0; i < numClientes.length; i++) {
@@ -200,34 +295,32 @@
             for (var i = 0; i < numDatos.length; i++) {
                 numDatos[i].style.display = "none";
             }
-            for (var i = 0; i < numForm.length; i++) {
-                numForm[i].style.display = 'none';
-            }
+            ocultar();
             document.getElementById(id).style.display = "block";
             cliente.style.backgroundColor = 'lightblue';
             document.getElementById("form").style.display = "none";
         }
         
         function modificar(x) {
+            ocultar();
             var formulario = document.getElementById("form" + x);
             formulario.style.display = "flex";
         }
         
         function nuevo() {
+            ocultar();
             for (var i = 0; i < numDatos.length; i++) {
                 numDatos[i].style.display = "none";
             }
             for (var i = 0; i < numClientes.length; i++) {
                 numClientes[i].style.backgroundColor = '#f1f1f1';
             }
-            for (var i = 0; i < numForm.length; i++) {
-                numForm[i].style.display = 'none';
-            }
             document.getElementById("form").style.display = "flex";
         }
         
         function buscar() {
             var buscador = document.getElementById("buscador").value;
+            ocultar();
             for (var i = 0; i < numDatos.length; i++) {
                 numDatos[i].style.display = "none";
             }
@@ -239,10 +332,15 @@
                     numClientes[i].style.display = 'none';
                 } 
             }
-            for (var i = 0; i < numForm.length; i++) {
-                numForm[i].style.display = 'none';
-            }
             document.getElementById("form").style.display = "none";
+        }
+        
+        function mostrarPedidos(id) {
+            var mostrar = document.getElementsByClassName("mostrar" + id);
+            ocultar();
+            for (var i = 0; i < mostrar.length; i++) {
+                mostrar[i].style.display = 'grid';
+            }
         }
         
     </script>
