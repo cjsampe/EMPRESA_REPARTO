@@ -65,7 +65,7 @@
                 <%    
                     }
                 %>
-                <div>
+                <div id="paginacion">
                     <input id="anterior" type="button" value="Anterior" onclick="pagina(1)">
                     <input id="siguiente" type="button" value="Siguiente" onclick="pagina(2)">
                 </div>
