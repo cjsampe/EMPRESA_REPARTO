@@ -1,13 +1,8 @@
 package com.sanvalero.cdaexpres.servlet;
 
-import com.sanvalero.cdaexpres.dao.ClienteDAO;
-import com.sanvalero.cdaexpres.dao.RepartidorDAO;
-import com.sanvalero.cdaexpres.dao.VehiculoDAO;
+
 import com.sanvalero.cdaexpres.dao.PedidoDAO;
-import com.sanvalero.cdaexpres.domain.Cliente;
 import com.sanvalero.cdaexpres.domain.Pedido;
-import com.sanvalero.cdaexpres.domain.Repartidor;
-import com.sanvalero.cdaexpres.domain.Vehiculo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -18,15 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet que añade un pedido a la base de datos
+ * Servlet que elimina un cliente de la base de datos
  */
-@WebServlet(name = "nuevo-pedido", urlPatterns = {"/nuevo-pedido"})
-public class AddPedidoServlet extends HttpServlet {
+@WebServlet(name = "modify-pedido", urlPatterns = {"/modify-pedido"})
+public class ModifyPedidoServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
         boolean fragil = false;
         boolean urgente = false;
+        int id = Integer.parseInt(request.getParameter("id"));
         // TODO La fecha requiere que el usuario introduzca un valor en formato dd/mm/yyyy. Cambiar el input por uno más seguro
         String fecha = request.getParameter("fecha");
         String direccion = request.getParameter("direccion");
@@ -43,44 +39,25 @@ public class AddPedidoServlet extends HttpServlet {
         if (urgenteCheckbox != null) {
             urgente = true;
         }
-        
-        String dniCliente = request.getParameter("dniCliente");
-        String dniRepartidor = request.getParameter("dniRepartidor");
-        String matricula = request.getParameter("matricula");
 
         PedidoDAO pedidoDAO = new PedidoDAO();
-        ClienteDAO clienteDAO = new ClienteDAO();
-        RepartidorDAO repartidorDAO = new RepartidorDAO();
-        VehiculoDAO vehiculoDAO = new VehiculoDAO();
 
         try {
-            Cliente cliente = clienteDAO.buscarCliente(dniCliente);
-            Repartidor repartidor = repartidorDAO.buscarRepartidor(dniRepartidor);
-            Vehiculo vehiculo = vehiculoDAO.buscarVehiculo(matricula);
-            if (cliente.getNombre() == null) {
-                response.sendRedirect("pedido.jsp?status=cliente_error");
-            } else if (repartidor.getNombre() == null) {
-                response.sendRedirect("pedido.jsp?status=repartidor_error");
-            } else if (vehiculo.getTipo() == null) {
-                response.sendRedirect("pedido.jsp?status=vehiculo_error");
-            } else {
-                Pedido pedido = new Pedido(0, fecha, direccion, peso, precio, fragil, urgente, cliente, repartidor, vehiculo);
-                pedidoDAO.addPedido(pedido);
-                PrintWriter out = response.getWriter();
-                response.sendRedirect("pedido.jsp?status=ok");
-            }
+            Pedido pedido = new Pedido(id, fecha, direccion, peso, precio, fragil, urgente, null, null, null);
+            pedidoDAO.modificarPedido(pedido);
+            PrintWriter out = response.getWriter();
+            response.sendRedirect("pedido.jsp?status=ok");
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             response.sendRedirect("pedido.jsp?status=error");
         }
     }
     
-    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);

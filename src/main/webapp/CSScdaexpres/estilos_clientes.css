@@ -177,7 +177,18 @@ footer{
     height: 32px;
 }
 
+#modificarPedido {
+    width: 48%;
+    height: 32px;
+}
+
 #modificar input {
+    background-color: #e65c2b;
+    width: 100%;
+    height: 100%;
+}
+
+#modificarPedido input {
     background-color: #e65c2b;
     width: 100%;
     height: 100%;
@@ -188,7 +199,18 @@ footer{
     height: 32px;
 }
 
+#eliminarPedido {
+    width: 48%;
+    height: 32px;
+}
+
 #eliminar input {
+    background-color: #fed665;
+    width: 100%;
+    height: 100%;
+}
+
+#eliminarPedido input {
     background-color: #fed665;
     width: 100%;
     height: 100%;
@@ -217,7 +239,7 @@ footer{
 }
 
 .actualizar input {
-    margin: 2px 0px;
+    margin: 5px 0px;
     width: 100%;
 }
 
@@ -281,7 +303,7 @@ footer{
 }
 
 #paginacion {
-    overflow:auto;
+    overflow: auto;
 }
 
 #paginacion input {
@@ -292,7 +314,24 @@ footer{
 #siguiente {
     float: right;
 }
-            
+
+.check {
+    width: 100%;
+    display: flex;
+}        
+
+.check input {
+    flex: 10%;
+    margin: 5px 0px;
+}
+
+.check p {
+    flex: 90%;
+    margin: 5px;
+    font-size: 12px;
+}
+
+
 /*RESPONSIVE*/
 
 @media screen and (max-width:800px){

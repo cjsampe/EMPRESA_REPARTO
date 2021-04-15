@@ -118,14 +118,18 @@
             %>
             <div>
                 <%
-                    String fragil = "No";
-                    String urgente = "No";
+                    String fragil = "";
+                    String urgente = "";
                     for (Pedido pedido : pedidos) {
-                        if (pedido.isFragil() == true) {
+                        if (pedido.isFragil()) {
                             fragil = "Sí";
+                        } else {
+                            fragil = "No";
                         }
-                        if (pedido.isUrgente() == true) {
+                        if (pedido.isUrgente()) {
                             urgente = "Sí";
+                        } else {
+                            urgente = "No";
                         }
                 %>
                     <div class="pedidos mostrar<%=cliente.getId()%>">
@@ -151,6 +155,16 @@
             <p style='color:green'><%= message %></p>
         <%        
             }
+
+            String status = request.getParameter("status");
+            if (status == null)
+                status = "";
+                
+            if (status.equals("ok")) {
+                out.println("<p style='color:green'>Se han guardado los cambios</p>");
+            } else if (status.equals("error")) {
+                out.println("<p style='color:red'>Ha habido un error realizando los cambios</p>");
+            }
         %>
         <footer>
             <div class="redes-sociales">
@@ -171,16 +185,4 @@
         <br>
         </footer>
     </body>
-    
-        <%
-            String status = request.getParameter("status");
-            if (status == null)
-                status = "";
-                
-            if (status.equals("ok")) {
-                out.println("<p style='color:green'>Se han guardado los cambios</p>");
-            } else if (status.equals("error")) {
-                out.println("<p style='color:red'>Ha habido un error realizando los cambios</p>");
-            }
-        %>
 </html>

@@ -33,6 +33,19 @@
             document.getElementById("form").style.display = "none";
         }
         
+        function verPedido(pedido, id) {
+            for (var i = 0; i < numClientes.length; i++) {
+                numClientes[i].style.backgroundColor = '#f1f1f1';
+            }
+            for (var i = 0; i < numDatos.length; i++) {
+                numDatos[i].style.display = "none";
+            }
+            ocultar();
+            document.getElementById(id).style.display = "block";
+            pedido.style.backgroundColor = 'lightblue';
+            document.getElementById("form").style.display = "none";
+        }
+        
         function modificar(x) {
             ocultar();
             var formulario = document.getElementById("form" + x);
@@ -66,6 +79,23 @@
             }
             document.getElementById("form").style.display = "none";
         }
+        function buscarPedido() {
+            var buscador = document.getElementById("buscador2").value;
+            ocultar();
+            for (var i = 0; i < numDatos.length; i++) {
+                numDatos[i].style.display = "none";
+            }
+            for (var i = 0; i < numClientes.length; i++) {
+                if (numClientes[i].innerHTML.indexOf(buscador) !== -1) {
+                    numClientes[i].style.display = 'block';
+                    numClientes[i].style.backgroundColor = '#f1f1f1';
+                } else {
+                    numClientes[i].style.display = 'none';
+                } 
+            }
+            document.getElementById("form").style.display = "none";
+        }
+        
         
         function pagina(pag) {
             ocultar();
