@@ -16,6 +16,7 @@
                 display: flex;
                 width: 100%;
                 max-width: 1250px;
+                min-height: 700px;
                 padding: 0px;
                 margin: 10px auto 0px auto;
             }
@@ -26,9 +27,9 @@
             .cliente {
                 background-color: #f1f1f1;
                 height: 30px;
-                margin: 2px 0px;
+                margin: 8px 0px 0px;
                 padding: 14px;
-                border: 1px solid #3333ff;
+                border: 0.5px solid gray;
                 display: none;
             }
             .detalle {
@@ -36,6 +37,7 @@
             }
             .datos {
                 display: none;
+                
             }
             .datos div {
                 background-color: #f1f1f1;
@@ -53,7 +55,7 @@
                 height: 32px;
             }
             #modificar input {
-                background-color: yellow;
+                background-color: #e65c2b;
                 width: 100%;
                 height: 100%;
             }
@@ -62,7 +64,7 @@
                 height: 32px;
             }
             #eliminar input {
-                background-color: red;
+                background-color:#fed665;
                 width: 100%;
                 height: 100%;
             }
@@ -92,14 +94,16 @@
                 height: 32px;
                 width: 180px;
                 margin-right: 10px;
-                background-color: lightgreen;
+                background-color: orange;
                 display: flex;
+                border-radius:12px;
                 justify-content: center;
             }
             #nuevo p {
                 margin: 8px 0px 0px;
                 font-size: 16px;
             }
+            
             #form {
                 display: none;
                 justify-content: center;
@@ -107,7 +111,8 @@
                 width: 180px;
             }
             #form input {
-                margin: 2px 0px;
+                margin: 5px 0px;
+                border-radius:5px;
                 width: 100%;
             }
             #buscar {
@@ -117,18 +122,20 @@
             #buscar input[type="text"]{
                 height: 26px;
                 width: 70%;
+                border-radius:5px;
             }
             #buscar input[type="button"]{
                 height: 32px;
+                border-radius:5px;
                 width: 25%;
             }
             .pedidos {
                 display: none;
-                background-color: #f1f1f1;
+                background-color: #cdeff7;
                 height: 30px;
                 margin: 2px 0px;
                 padding: 14px;
-                border: 1px solid #3333ff;
+                border: 1px solid #37bdc9;
                 grid-template-columns: 25% 25% 15% 15% 10% 10%;
             }
             #seccionPedidos {
@@ -168,7 +175,7 @@
                     <input type="text" name="nombre" placeholder="Nombre"
                         pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required/>
                     <input type="text" name="dni" placeholder="DNI" pattern="[A-Za-z0-9!?-]{9}" required/>
-                    <input type="text" name="telefono" placeholder="Teléfono" pattern="/^[0-9]{9}$/" required/>
+                    <input type="text" name="telefono" placeholder="Teléfono"/>
                     <input type="text" name="email" placeholder="Email"
                            pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/>
                     <input type="submit" value="Añadir cliente"/>
@@ -260,9 +267,10 @@
                     </div>
                 <%
                     }
+            %></div><%
                 }
                 %>
-            </div>
+            
         </div>
         <%
             // Muestra el mensaje (si lo hay)
@@ -292,7 +300,7 @@
         <br>
         </footer>
         <script src="https://kit.fontawesome.com/653631b56e.js" crossorigin="anonymous"></script>
-    </body>
+    
     <script>
         
         var numClientes = document.getElementsByClassName("cliente");
@@ -412,4 +420,5 @@
                 out.println("<p style='color:red'>Ha habido un error realizando los cambios</p>");
             }
         %>
+</body>
 </html>
