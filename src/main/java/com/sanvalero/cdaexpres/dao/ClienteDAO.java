@@ -69,7 +69,7 @@ public class ClienteDAO {
      * @return Una colección con los clientes
      */
     public ArrayList<Cliente> getAllClientes() throws SQLException { 
-        String sql = "SELECT cliente_id, nombre, dni, telefono, email FROM clientes";
+        String sql = "SELECT cliente_id, nombre, dni, telefono, email FROM clientes ORDER BY nombre";
         ArrayList<Cliente> clientes = new ArrayList<>();
         
         PreparedStatement sentencia = connection.prepareStatement(sql);

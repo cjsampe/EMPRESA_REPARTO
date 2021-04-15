@@ -138,6 +138,7 @@
         <h1>Lista de Clientes (con JSP)</h1>
         <%
             ClienteDAO clienteDAO = new ClienteDAO();
+            PedidoDAO pedidoDAO = new PedidoDAO();
             ArrayList<Cliente> clientes = clienteDAO.getAllClientes();
         %>
         <div class="contenido">
@@ -165,7 +166,8 @@
                     }
                 %>
                 <div>
-                    <input type="button" value=">" onclick="pagina(1)">
+                    <input id="anterior" type="button" value="<" onclick="pagina(1)">
+                    <input id="siguiente" type="button" value=">" onclick="pagina(2)">
                 </div>
             </div>
             <div class="detalle">
@@ -211,8 +213,8 @@
         <div id="seccionPedidos">
             <%
                 for (Cliente cliente : clientes) {
-                PedidoDAO pedidoDAO = new PedidoDAO();
-                ArrayList<Pedido> pedidos = pedidoDAO.getPedidosCliente(cliente);
+                    
+                    ArrayList<Pedido> pedidos = pedidoDAO.getPedidosCliente(cliente);
             %>
             <div>
                 <%
@@ -256,28 +258,7 @@
         var numDatos = document.getElementsByClassName("datos");
         var numForm = document.getElementsByClassName("actualizar");
         var numPedidos = document.getElementsByClassName("pedidos");
-        var pagActual = 0;
-        
-        function pagina(pag) {
-            if (pag === 1) {
-                pagActual = pagActual+1;
-            }
-            numPag = pagActual*10;
-            for (var i = 0; i < 10; i++) {
-                    numClientes[i].style.display = "none";
-                }
-            if (numClientes.length > 10) {
-                for (var i = 0; i < 10; i++) {
-                    numClientes[i+numPag].style.backgroundColor = '#f1f1f1';
-                    numClientes[i+numPag].style.display = "block";
-                }
-            } else {
-                for (var i = 0; i < numClientes.length; i++) {
-                    numClientes[i].style.backgroundColor = '#f1f1f1';
-                    numClientes[i].style.display = "block";
-                }
-            }
-        }
+        var numPag = 0;
         
         function ocultar() {
             for (var i = 0; i < numForm.length; i++) {
@@ -333,6 +314,40 @@
                 } 
             }
             document.getElementById("form").style.display = "none";
+        }
+        
+        function pagina(pag) {
+            ocultar();
+            if (pag === 1) {
+                numPag = numPag-10;
+            }
+            if (pag === 2) {
+                numPag = numPag+10;
+            }
+            if (numPag === 0) {
+                document.getElementById("anterior").style.display = "none";
+            } else {
+                document.getElementById("anterior").style.display = "inline-block";
+            }
+            for (var i = 0; i < numClientes.length; i++) {
+                    numClientes[i].style.display = "none";
+            }
+            if ((numPag+10) > numClientes.length) {
+                document.getElementById("siguiente").style.display = "none";
+            } else {
+                document.getElementById("siguiente").style.display = "inline-block";
+            }
+            if (numClientes.length > 10) {
+                for (var i = 0; i < 10; i++) {
+                    numClientes[i+numPag].style.backgroundColor = '#f1f1f1';
+                    numClientes[i+numPag].style.display = "block";
+                }
+            } else {
+                for (var i = 0; i < numClientes.length; i++) {
+                    numClientes[i].style.backgroundColor = '#f1f1f1';
+                    numClientes[i].style.display = "block";
+                }
+            }
         }
         
         function mostrarPedidos(id) {
