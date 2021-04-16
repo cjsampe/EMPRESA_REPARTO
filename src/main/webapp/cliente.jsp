@@ -59,9 +59,8 @@
                 </form>
                 <%
                     for (Cliente cliente : clientes) {
-                        int clienteId = cliente.getId();
                 %>
-                    <div class="cliente" onclick="verCliente(this, '<%=clienteId%>')"><%= cliente.getNombre()%></div>
+                    <div class="cliente" onclick="verCliente(this, '<%=cliente.getId()%>')"><%= cliente.getNombre()%></div>
                 <%    
                     }
                 %>
@@ -73,9 +72,8 @@
             <div class="detalle">
                 <%
                     for (Cliente cliente : clientes) {
-                        int clienteId = cliente.getId();
                 %>
-                <div id="<%=clienteId%>" class="datos">
+                <div id="<%=cliente.getId()%>" class="datos">
                     <div>Nombre: <%= cliente.getNombre()%></div>
                     <div>DNI: <%= cliente.getDni()%></div>
                     <div>Teléfono: <%= cliente.getTelefono()%></div>
@@ -175,9 +173,9 @@
             </div>
             <div class="enlaces">
                 <ul>
-                        <li><a href="aviso_legal.jsp">Aviso Legal</a></li>
-                        <li><a href="politica_privacidad.jsp">Politica de privacidad</a></li>
-                        <li><a href="cliente_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                    <li><a href="aviso_legal.jsp">Aviso Legal</a></li>
+                    <li><a href="politica_privacidad.jsp">Politica de privacidad</a></li>
+                    <li><a href="cliente_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
                 </ul>
             </div> 
             
