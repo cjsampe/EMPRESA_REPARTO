@@ -37,9 +37,6 @@
         <br>
         
         <%
-            ClienteDAO clienteDAO = new ClienteDAO();
-            RepartidorDAO repartidorDAO = new RepartidorDAO();
-            VehiculoDAO vehiculoDAO = new VehiculoDAO();
             PedidoDAO pedidoDAO = new PedidoDAO();
             ArrayList<Pedido> pedidos = pedidoDAO.getAllPedidos();
         %>
@@ -48,7 +45,7 @@
         <div class="contenido">
             <div>
                 <div id="nuevo" onclick="nuevo()"><p>New order</p></div>
-                <form id="form" method="post" action="nuevo-pedido">
+                <form id="form" method="post" action="new-order">
                     <input type="text" name="dniCliente" placeholder="DNI del cliente" required/>
                     <input type="text" name="dniRepartidor" placeholder="Customer's DNI" required/>
                     <input type="text" name="matricula" placeholder="Vehicle registration number" required/>
@@ -68,9 +65,8 @@
                 </form>
                 <%
                     for (Pedido pedido : pedidos) {
-                        int pedidoId = pedido.getIdPedido();
                 %>
-                    <div class="cliente" onclick="verPedido(this, '<%=pedidoId%>')"><%= pedido.getFechaEnvio() + " - " + pedido.getDireccion()%></div>
+                    <div class="cliente" onclick="verPedido(this, '<%=pedido.getIdPedido()%>')"><%= pedido.getFechaEnvio() + " - " + pedido.getDireccion()%></div>
                 <%    
                     }
                 %>
@@ -84,7 +80,6 @@
                     String fragil = "";
                     String urgente = "";
                     for (Pedido pedido : pedidos) {
-                        int pedidoId = pedido.getIdPedido();
                         if (pedido.isFragil() == true) {
                             fragil = "Sí";
                         } else {
@@ -96,7 +91,7 @@
                             urgente = "No";
                         }
                 %>
-                <div id="<%=pedidoId%>" class="datos">
+                <div id="<%=pedido.getIdPedido()%>" class="datos">
                     <div>Date: <%=pedido.getFechaEnvio()%></div>
                     <div>Dirección: <%=pedido.getDireccion()%></div>
                     <div>Address: <%=pedido.getPeso()%></div>
@@ -108,14 +103,14 @@
                         <form method="post" id="modificarPedido">
                             <input type="button" value="Modify order" onclick="modificar(<%= pedido.getIdPedido()%>)">
                         </form>
-                        <form method="post" id="eliminarPedido" action="remove-pedido">
+                        <form method="post" id="eliminarPedido" action="remove-order">
                             <input class="inputOculto" type="text" value="<%=pedido.getIdPedido()%>" name="eliminarPedido">
                             <input type="submit" value="Delete order">
                         </form>
                     </div>
                 </div>
                 <div>
-                    <form id="form<%= pedido.getIdPedido()%>" class="actualizar" method="post" action="modify-pedido">
+                    <form id="form<%= pedido.getIdPedido()%>" class="actualizar" method="post" action="modify-order">
                         <input class="inputOculto" type="text" name="id" value="<%= pedido.getIdPedido()%>">
                         <input type="text" name="fecha" value="<%= pedido.getFechaEnvio()%>"/>
                         <input type="text" name="direccion" value="<%= pedido.getDireccion()%>"/>
@@ -179,9 +174,9 @@
             </div>
             <div class="enlaces">
                 <ul>
-                        <li><a href="aviso_legal_ingles.jsp">Legal warning</a></li>
-                        <li><a href="politica_privacidad_ingles.jsp">Privacy Policy</a></li>
-                        <li><a href="pedido.jsp"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
+                    <li><a href="aviso_legal_ingles.jsp">Legal warning</a></li>
+                    <li><a href="politica_privacidad_ingles.jsp">Privacy Policy</a></li>
+                    <li><a href="pedido.jsp"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
                 </ul>
             </div> 
             

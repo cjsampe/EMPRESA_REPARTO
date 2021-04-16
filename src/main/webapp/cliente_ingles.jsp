@@ -42,7 +42,7 @@
         <div class="contenido">
             <div>
                 <div id="nuevo" onclick="nuevo()"><p>New customer</p></div>
-                <form id="form" method="post" action="nuevo-cliente">
+                <form id="form" method="post" action="new-cliente">
                     <input type="text" name="nombre" placeholder="Name"
                         pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required/>
                     <input type="text" name="dni" placeholder="DNI" pattern="[A-Za-z0-9!?-]{9}" required/>
@@ -59,9 +59,8 @@
                 </form>
                 <%
                     for (Cliente cliente : clientes) {
-                        int clienteId = cliente.getId();
                 %>
-                    <div class="cliente" onclick="verCliente(this, '<%=clienteId%>')"><%= cliente.getNombre()%></div>
+                    <div class="cliente" onclick="verCliente(this, '<%=cliente.getId()%>')"><%= cliente.getNombre()%></div>
                 <%    
                     }
                 %>
@@ -73,9 +72,8 @@
             <div class="detalle">
                 <%
                     for (Cliente cliente : clientes) {
-                        int clienteId = cliente.getId();
                 %>
-                <div id="<%=clienteId%>" class="datos">
+                <div id="<%=cliente.getId()%>" class="datos">
                     <div>Name: <%= cliente.getNombre()%></div>
                     <div>DNI: <%= cliente.getDni()%></div>
                     <div>Phone: <%= cliente.getTelefono()%></div>
@@ -85,7 +83,7 @@
                         <form method="post" id="modificar">
                             <input type="button" value="Change customer" onclick="modificar(<%= cliente.getId()%>)">
                         </form>
-                        <form method="post" id="eliminar" action="remove-cliente">
+                        <form method="post" id="eliminar" action="remove-customer">
                             <input class="inputOculto" type="text" value="<%=cliente.getId()%>" name="eliminarCliente">
                             <input type="submit" value="Delete customer">
                         </form>
@@ -96,7 +94,7 @@
                     </div>
                 </div>
                 <div>
-                    <form id="form<%= cliente.getId()%>" class="actualizar" method="post" action="modify-cliente">
+                    <form id="form<%= cliente.getId()%>" class="actualizar" method="post" action="modify-customer">
                         <input class="inputOculto" type="text" name="id" value="<%= cliente.getId()%>">
                         <input type="text" name="nombre" value="<%= cliente.getNombre()%>"/>
                         <input type="text" name="dni" value="<%= cliente.getDni()%>"/>
@@ -161,9 +159,9 @@
             </div>
             <div class="enlaces">
                 <ul>
-                        <li><a href="aviso_legal_ingles.jsp">Legal warning</a></li>
-                        <li><a href="politica_privacidad_ingles.jsp">Privacy Policy</a></li>
-                        <li><a href="cliente.jsp"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
+                    <li><a href="aviso_legal_ingles.jsp">Legal warning</a></li>
+                    <li><a href="politica_privacidad_ingles.jsp">Privacy Policy</a></li>
+                    <li><a href="cliente.jsp"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
                 </ul>
             </div> 
             

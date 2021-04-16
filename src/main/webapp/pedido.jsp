@@ -37,9 +37,6 @@
         <br>
         
         <%
-            ClienteDAO clienteDAO = new ClienteDAO();
-            RepartidorDAO repartidorDAO = new RepartidorDAO();
-            VehiculoDAO vehiculoDAO = new VehiculoDAO();
             PedidoDAO pedidoDAO = new PedidoDAO();
             ArrayList<Pedido> pedidos = pedidoDAO.getAllPedidos();
         %>
@@ -68,9 +65,8 @@
                 </form>
                 <%
                     for (Pedido pedido : pedidos) {
-                        int pedidoId = pedido.getIdPedido();
                 %>
-                    <div class="cliente" onclick="verPedido(this, '<%=pedidoId%>')"><%= pedido.getFechaEnvio() + " - " + pedido.getDireccion()%></div>
+                    <div class="cliente" onclick="verPedido(this, '<%=pedido.getIdPedido()%>')"><%= pedido.getFechaEnvio() + " - " + pedido.getDireccion()%></div>
                 <%    
                     }
                 %>
@@ -84,7 +80,6 @@
                     String fragil = "";
                     String urgente = "";
                     for (Pedido pedido : pedidos) {
-                        int pedidoId = pedido.getIdPedido();
                         if (pedido.isFragil() == true) {
                             fragil = "Sí";
                         } else {
@@ -96,7 +91,7 @@
                             urgente = "No";
                         }
                 %>
-                <div id="<%=pedidoId%>" class="datos">
+                <div id="<%=pedido.getIdPedido()%>" class="datos">
                     <div>Fecha: <%=pedido.getFechaEnvio()%></div>
                     <div>Dirección: <%=pedido.getDireccion()%></div>
                     <div>Peso: <%=pedido.getPeso()%></div>
@@ -179,9 +174,9 @@
             </div>
             <div class="enlaces">
                 <ul>
-                        <li><a href="aviso_legal.jsp">Aviso Legal</a></li>
-                        <li><a href="politica_privacidad.jsp">Politica de privacidad</a></li>
-                        <li><a href="index_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
+                    <li><a href="aviso_legal.jsp">Aviso Legal</a></li>
+                    <li><a href="politica_privacidad.jsp">Politica de privacidad</a></li>
+                    <li><a href="index_ingles.jsp"><img src="images/bandera_inglesa.jpg" style="width:20%"></a></li>
                 </ul>
             </div> 
             
