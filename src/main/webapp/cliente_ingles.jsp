@@ -21,7 +21,7 @@
                     <img src="images/logo_cdaexpres.jpg" alt="">
                 </div>
                 <div class="enlaces"> 
-                        <li><a href="index_ingles.jsp">Index</a></li>
+                        <li><a href="index_ingles.jsp">Home</a></li>
                         <li><a href="pedido_ingles.jsp">Orders</a></li>
                         <li><a href="cliente.jsp"><img src="images/bandera_espanola.jpg" style="width:20%"></a></li>
                 </div>
