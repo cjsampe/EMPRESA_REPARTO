@@ -154,7 +154,7 @@ public class PedidoDAO {
     
     /**
      * Obtiene la lista de pedidos de un cliente seleccionado
-     * @param id del cliente a consultar
+     * @param cliente a consultar
      * @return Una colección con los pedidos
      */
     public ArrayList<Pedido> getPedidosCliente(Cliente cliente) throws SQLException { 
@@ -169,12 +169,12 @@ public class PedidoDAO {
         boolean urgente = false;
         while (resultado.next()) {
         // Cambiar formato int a booleano por la base de datos
-            if (resultado.getInt(4) == 1) {
+            if (resultado.getInt(5) == 1) {
                 fragil = true;
             } else {
                 fragil = false;
             }
-            if (resultado.getInt(5) == 1) {
+            if (resultado.getInt(6) == 1) {
                 urgente = true;
             } else {
                 urgente = false;
